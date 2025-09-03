@@ -1,0 +1,23 @@
+{
+  "name": "web-crawler-cli",
+  "version": "1.0.0",
+  "description": "Web Crawler CLI Built In Javascript . Purpose is to crawl a website and show a report of internal linking structure of the website.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryan55254/web-crawler-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aryan55254/web-crawler-cli/issues"
+  },
+  "homepage": "https://github.com/aryan55254/web-crawler-cli#readme",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}
