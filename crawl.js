@@ -1,4 +1,6 @@
 const { JSDOM } = require("jsdom");
+let crawlCount = 0;
+const { printReport } = require("./report.js");
 
 async function crawlPage(baseURL, currentURL, pages) {
   const baseURLobj = new URL(baseURL);
@@ -14,6 +16,25 @@ async function crawlPage(baseURL, currentURL, pages) {
 
   pages[normalizedCurrentURL] = 1;
   console.log(`actively crawling : ${currentURL}`);
+
+  crawlCount++;
+  if (crawlCount % 25 === 0) {
+    printReport(pages);
+    const readline = require("readline");
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    await new Promise((resolve) => {
+      rl.question("Reached 25 crawls. Continue? (y/n): ", (answer) => {
+        rl.close();
+        if (answer.toLowerCase() !== "y") {
+          process.exit(0);
+        }
+        resolve();
+      });
+    });
+  }
 
   try {
     const response = await fetch(currentURL);
