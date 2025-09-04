@@ -19,5 +19,8 @@
   "homepage": "https://github.com/aryan55254/web-crawler-cli#readme",
   "devDependencies": {
     "jest": "^30.1.3"
+  },
+  "dependencies": {
+    "jsdom": "^26.1.0"
   }
 }
